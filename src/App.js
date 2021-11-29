@@ -4,9 +4,19 @@ import './App.css';
 
 export default function App() {
 
-  const wave = () => {
+ const checkIfWalletIsConnect = () => {
+   const {ethereum} = window;
+   if(!ethereum){
+     console.log("Make sure you have metamask!")
+     return;
+   } else {
+     console.log("We have the ethereum object")
+   }
+ }
     
-  }
+  useEffect(() => {
+    checkIfWalletIsConnect()
+  }, [])
   
   return (
     <div className="mainContainer">
@@ -17,7 +27,7 @@ export default function App() {
         </div>
 
         <div className="bio">
-        I am farza and I worked on self-driving cars so that's pretty cool right? Connect your Ethereum wallet and wave at me!
+        Hi I'm Tatiana and I'm looking to get going with understanding Web3!
         </div>
 
         <button className="waveButton" onClick={wave}>
